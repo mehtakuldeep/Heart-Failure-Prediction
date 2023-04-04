@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>	
+<meta charset="UTF-8">
+
+<style>
+fieldset{
+	background-color: "grey";
+	width: 650px;
+}
+legend {
+background-color: "gray";
+color: white;
+padding: 10px 20px;
+}
+input{
+margin: 20px;
+}
+</style>
+<head>
+<body background="{{url_for('static', filename = '1080p.jpg')}}"> 
+<font color="white">
+<br>
+<form method = "post" action = "{{ url_for('predict')}}">
+<fieldset>
+<legend> Prediction :</legend>
+Age <input type ="Number" name="age"/>
+<br>
+Sex <select name = "sex">
+<option value="none" selected disabled hidden>Select an Option</option>
+<option value="0">Female</option>
+<option value="1">Male</option>
+</select>
+<br>
+<br>
+Chest Pain Type  <select name = "cp">
+<option value="none" selected disabled hidden>Select an Option</option>
+<option value="0">Typical Angina</option>
+<option value="1">Atypical Angina</option>
+<option value="2">Non-Anginal pain</option>
+<option value="3">Asymptomatic</option>
+</select>
+<br>
+
+Resting Blood Sugar(in mm Hg) <input type ="Number" name="trtbps"/>
+<br>
+Cholestoral(in mg/dl) <input type ="Number" name="chol"/>
+<br>
+
+Fasting Blood Sugar(>120 mg/dl) <select name = "fbs">
+<option value="none" selected disabled hidden>Select an Option</option>
+<option value="0">False</option>
+<option value="1">True</option>
+</select>
+<br>
+<br>
+Rest Electrocardiographic Results <select name = "restecg">
+<option value="none" selected disabled hidden>Select an Option</option>
+<option value="0">Normal</option>
+<option value="1">having ST-T wave abnormality</option>
+<option value="2">Showing definite left ventricular Hypertrophy by Estes criteria</option>
+</select>
+<br>
+
+Maximum Heart Rate Achieved <input type= "Number" name = "thalachh">
+<br>
+Exercise Induced Angina <select name = "exng">
+<option value="none" selected disabled hidden>Select an Option</option>
+<option value="0">NO</option>
+<option value="1">Yes</option>
+</select>
+<br>
+Oldpeak<input type = "number" step = "any" name="oldpeak"/>
+<br>
+Slope<input type = "Number" name = "slp"/>
+<br>
+Number of Blood Vessel blocked(0-3) <input type= "Number" name = "caa">
+<br>
+Thall(0-3)<select name = "thall">
+<option value="none" selected disabled hidden>Select an Option</option>
+<option value = "0">No defect</option>
+<option value = "1">Fixed Defect</option>
+<option value = "2">Normal</option>
+<option value = "3">Reversible Defect</option>
+</select>
+<br>
+<button type = "submit" class = "btn">Predict</button>
+</fieldset>
+</form>
+<br>
+<br>
+{{prediction_text}}
+</body>
+</html>
